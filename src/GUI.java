@@ -25,8 +25,8 @@ public class GUI {
 
     public void addCells(int[][] grid) {
         gridPanel.removeAll();
-        for (int y = 0; y < grid[0].length; y++) {
-            for (int x = 0; x < grid.length; x++) {
+        for (int x = 0; x < grid.length; x++) {
+            for (int y = 0; y < grid[x].length; y++) {
                 JPanel cellPanel = new JPanel();
                 cellPanel.setBorder(BorderFactory.createLineBorder(Color.lightGray));
                 if (grid[x][y] == 1) {
