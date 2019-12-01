@@ -5,16 +5,24 @@ public class GUI {
     private JFrame frame;
     private JPanel gridPanel;
 
+    /**
+     * Creates a new GUI to display the game
+     */
     public GUI(int[][] grid) {
         buildGUI(grid);
     }
 
-    public void buildGUI(int[][] grid) {
+    /**
+     * Builds a GUI to represent the game grid and cell values
+     *
+     * @param grid the grid in which the display should be based on
+     */
+    private void buildGUI(int[][] grid) {
         frame = new JFrame("Game of Life");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gridPanel = new JPanel();
         JScrollPane scrollPane = new JScrollPane(gridPanel);
-        addCells(grid);
+        setCells(grid);
         gridPanel.setLayout(new GridLayout(grid.length, grid[0].length));
         frame.add(scrollPane);
         frame.setMinimumSize(new Dimension(300, 300));
@@ -23,7 +31,12 @@ public class GUI {
 
     }
 
-    public void addCells(int[][] grid) {
+    /**
+     * Updates the cells to indicate whether or not they are live
+     *
+     * @param grid the grid to check for live cells in
+     */
+    private void setCells(int[][] grid) {
         gridPanel.removeAll();
         for (int x = 0; x < grid.length; x++) {
             for (int y = 0; y < grid[x].length; y++) {
@@ -42,8 +55,13 @@ public class GUI {
 
     }
 
+    /**
+     * Calls for an update on the GUI cells
+     *
+     * @param grid an up to date version of the grid
+     */
     public void update(int[][] grid) {
-        addCells(grid);
+        setCells(grid);
         frame.pack();
         frame.setVisible(true);
     }
