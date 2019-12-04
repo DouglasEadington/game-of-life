@@ -144,4 +144,20 @@ public class Game {
     private boolean lifeCreation(int r, int c) {
         return countNeighbours(r, c) == 3;
     }
+
+    /**
+     * Gets the number of rows in the grid
+     * @return noRows
+     */
+    public int getNoRows() {
+        return noRows;
+    }
+
+    /**
+     * Get the number of columns in the grid
+     * @return noCols
+     */
+    public int getNoCols() {
+        return noCols;
+    }
 }

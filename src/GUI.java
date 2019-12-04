@@ -8,8 +8,8 @@ public class GUI {
     /**
      * Creates a new GUI to display the game
      */
-    public GUI(int[][] grid) {
-        buildGUI(grid);
+    public GUI(int[][] grid, int noRows, int noCols) {
+        buildGUI(grid, noRows, noCols);
     }
 
     /**
@@ -17,13 +17,13 @@ public class GUI {
      *
      * @param grid the grid in which the display should be based on
      */
-    private void buildGUI(int[][] grid) {
+    private void buildGUI(int[][] grid, int noRows, int noCols) {
         frame = new JFrame("Game of Life");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gridPanel = new JPanel();
         JScrollPane scrollPane = new JScrollPane(gridPanel);
         setCells(grid);
-        gridPanel.setLayout(new GridLayout(grid.length, grid[0].length));
+        gridPanel.setLayout(new GridLayout(noRows,noCols));
         frame.add(scrollPane);
         frame.setMinimumSize(new Dimension(300, 300));
         frame.pack();
